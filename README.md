@@ -1,33 +1,72 @@
 # CertiChain
 
-This project uses blockchain technology to store and verify certificates that can be provided by an organization. It stores all the data related to certificates in a custom struct in smart contracts which can be added by an authorized certifier. End users can get all their certificates or send the hash of the certificate to employers for them to verify using the frontend.
+CertiChain is a blockchain-based certificate verification system that allows organizations to issue and validate certificates securely. Certificates are stored in a structured format within smart contracts and can only be added by authorized certifiers. End users can retrieve all their certificates or share a certificate hash with employers for verification via the frontend.
 
-The frontend is a basic React app where the owner or deployer of the smart contract can authorize certifiers and then they can proceed to add certificates. We are also using `react-pdf` to generate the certificates and make them downloadable for the end user.
+## Features
+- **Decentralized Certificate Storage**: Ensures secure and tamper-proof certificate management.
+- **Smart Contract Authorization**: Only authorized certifiers can issue certificates.
+- **User-Friendly Verification**: End users can share certificate hashes for easy validation.
+- **React-PDF Integration**: Enables users to generate and download certificates.
+
+## Technologies Used
+- **Blockchain**
+- **Solidity**
+- **React**
+- **React-PDF**
+- **Hardhat**
+
+---
 
 ## Getting Started
+Follow these steps to set up and run the project on your local system:
 
-To run this project:
+### Prerequisites
+Ensure you have the following installed:
+- **Node.js** (for running the frontend and blockchain scripts)
+- **Git** (for cloning the repository)
+- **Metamask** (for interacting with the blockchain)
 
-1. The user needs to have `Node.js` installed on their system.
-2. Git clone the project
-3. Change into the project directory: `cd project-name`
-4. Run `npm install`
-5. In another terminal, start the hardhat node in the local system by running `npx hardhat node`
-6. In the same directory, run the following:
-   ```shell
+### Installation & Setup
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/STUDYHUB02/CertiChain.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd CertiChain
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Start a local blockchain node using Hardhat:
+   ```sh
+   npx hardhat node
+   ```
+5. Open another terminal and compile the smart contract:
+   ```sh
    npx hardhat compile
+   ```
+6. Deploy the smart contract to the local blockchain:
+   ```sh
    npx hardhat run scripts/deploy.js --network localhost
    ```
+7. In a new terminal, start the frontend application:
+   ```sh
+   npm run dev
+   ```
 
-This will compile and deploy the smart contract to local blockchain.
+### Connecting to Metamask
+- Open Metamask in your browser.
+- Import the private key of the first Hardhat address (this is the owner account).
+- Once connected, you can authorize new certifiers and issue certificates to users.
 
-7. In another terminal in the same directory, run` npm run dev`.
+---
 
-The user needs to have Metamask installed in their browser and also needs to import the private keys of the first hardhat address because that is the owner account. They can then add new certifiers and certify certificates to users.
+## Usage Guide
+1. **Authorize Certifiers**: The contract owner can add authorized certifiers.
+2. **Issue Certificates**: Certifiers can create and store certificates on the blockchain.
+3. **Retrieve Certificates**: Users can access their issued certificates.
+4. **Verification**: Employers or third parties can verify certificates using their unique hash.
 
-Technologies Used
-Blockchain
-Solidity
-React
-react-pdf
-hardhat
+---
