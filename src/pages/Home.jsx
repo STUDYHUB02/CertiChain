@@ -1,61 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { certichainAddress } from "../../config";
-import certichain from "../../artifacts/contracts/CertiChain.sol/CertificateStore.json";
-import Web3 from "web3";
+// src/pages/Home.jsx
 
-const web3 = new Web3(window.ethereum);
-const Certichain = new web3.eth.Contract(certichain.abi, certichainAddress);
+import React from 'react';
 
 const Home = () => {
-  const [certificates, setCertificates] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchCertificates = async () => {
-      try {
-        await window.ethereum.request({ method: "eth_requestAccounts" });
-        const accounts = await new Web3(window.ethereum).eth.getAccounts();
-        const result = await Certichain.methods
-          .getCertificatesByStudent()
-          .call({ from: accounts[0] });
-        setCertificates(result);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchCertificates();
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (certificates.length === 0) {
-    return <div>No certificates found!</div>;
-  }
-
   return (
-    <div
-      style={{
-        display: "flex",
-        // flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {certificates.map((certificate, index) => (
-        <div key={index} className="certificate">
-          <p>Name: {certificate.name}</p>
-          <p>IPFS Hash: {certificate.ipfsHash}</p>
-          <p>Organization: {certificate.organization}</p>
-          <p>Title: {certificate.details}</p>
-          <p>Issued By: {certificate.certifier}</p>
-          <p>Issued To: {certificate.student}</p>
-        </div>
-      ))}
+    <div className="home container">
+      <h1>Welcome to CertiChain</h1>
+      <p>
+        CertiChain is a blockchain-based certificate verification system that allows organizations to issue and validate certificates securely. Certificates are stored in a structured format within smart contracts and can only be added by authorized certifiers. End users can retrieve all their certificates or share a certificate hash with employers for verification via the frontend.
+      </p>
+      {/* Other homepage components/elements can go here */}
     </div>
   );
 };
+
 export default Home;
