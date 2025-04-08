@@ -1,15 +1,15 @@
 # CertChain
 
-CertChain is a decentralized application (Dapp) built on the Ethereum Virtual Machine (EVM) to create and assign certificates to students as NFTs (Non-Fungible Tokens). This approach helps solve the issue of certificate fraud. Project was developed during XINNOVATE 2024 Hackthon.
+CertChain is a decentralized application (Dapp) built on the Ethereum Virtual Machine (EVM) to create and assign certificates to students as NFTs (Non-Fungible Tokens). This approach helps solve the issue of certificate fraud.
 
 ![image](./cetichain.webp)
 
 ## Team Members
 
-- [Arjun C](https://github.com/4rjunc)
-- [Hari Prasad G](https://github.com/HARI-G-YADHAV)
-- [Anjana A](https://github.com/Anjana2002)
-- [Aishwarya K P](https://github.com/aishwaryaaishus001)
+- [Saahil A. V.](https://github.com/STUDYHUB02)
+- [Priyanshu Raj](https://github.com/aditiya-raj2004)
+- [Vrashabha Nilajagi](https://github.com/vrashabha13)
+- Shrutik Sai
 
 ## Tech Stack
 
